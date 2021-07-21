@@ -58,13 +58,13 @@ console.log("Sua idade em horas é ", idade*24*365)
 
 // 4)
 
-let primeiroNumero = Number(prompt("Primeiro Numero"))
-let segundoNumero = Number(prompt("Segundo numero"))
+let primeiro = Number(prompt("Primeiro Numero"))
+let segundo = Number(prompt("Segundo numero"))
 
-let maior = primeiroNumero > segundoNumero
-let igual = primeiroNumero == segundoNumero
-let divisivel = (primeiroNumero%segundoNumero == 0)
-let divisivelSegundo = (segundoNumero%primeiroNumero == 0)
+let maior = primeiro > segundo
+let igual = primeiro == segundo
+let divisivel = (primeiro%segundo == 0)
+let divisivelSegundo = (segundo%primeiro == 0)
 
 console.log("O primeiro numero é maior que segundo? ", maior)
 console.log("O primeiro numero é igual ao segundo? ", igual)

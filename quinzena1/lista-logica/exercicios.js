@@ -32,11 +32,8 @@ function calculaAreaRetangulo() {
 // Exercício 2
 function imprimeIdade() {
   // escreva seu código aqui
-  let anoAtual = prompt("Digite o ano em que estamos");
-  let anoNasc = prompt("Digite o ano de nascimento");
-
-  anoAtual = Number(anoAtual);
-  anoNasc = Number(anoNasc);
+  let anoAtual = Number(prompt("Digite o ano em que estamos"));
+  let anoNasc = Number(prompt("Digite o ano de nascimento"));
 
   console.log(anoAtual - anoNasc);
 }
@@ -45,11 +42,8 @@ function imprimeIdade() {
 function calculaIMC() {
   // escreva seu código aqui
 
-  let peso = prompt("Peso");
-  let altura = prompt("Altura");
-
-  peso = Number(peso);
-  altura = Number(altura);
+  let peso = Number(prompt("Peso"));
+  let altura = Number(prompt("Altura"));
 
   const imc = peso / (altura * altura);
   console.log(imc);
@@ -71,7 +65,7 @@ function imprimeInformacoesUsuario() {
 // Exercício 5
 function imprimeTresCoresFavoritas() {
   // escreva seu código aqui
-  var cores = [];
+  const cores = [];
   cores[0] = prompt("Qual sua primeira cor favorita");
   cores[1] = prompt("Qual sua segunda cor favorita");
   cores[2] = prompt("Qual sua terceira cor favorita");
@@ -89,14 +83,13 @@ function retornaStringEmMaiuscula() {
 
 // Exercício 7
 function calculaIngressosEspetaculo() {
-  let custo = prompt("Qual o custo do espetaculo?");
-  let ingresso = prompt("Qual o valor do ingresso?");
-  custo = Number(custo);
-  ingresso = Number(ingresso);
+  // escreva seu código aqui
+  let custo = Number(prompt("Qual o custo do espetaculo?"));
+  let ingresso = Number(prompt("Qual o valor do ingresso?"));
 
   const total = custo / ingresso;
 
-  console.log(total); // escreva seu código aqui
+  console.log(total);
 }
 
 // Exercício 8
@@ -105,7 +98,8 @@ function checaStringsMesmoTamanho() {
   let fraseUm = prompt("String 1");
   let fraseDois = prompt("String 2");
 
-  fraseUm.length == fraseDois.length ? console.log(true) : console.log(false);
+  let resultado = fraseUm.length == fraseDois.length ? true : false;
+  console.log(resultado);
 }
 
 // Exercício 9
@@ -116,32 +110,27 @@ function checaIgualdadeDesconsiderandoCase() {
   fraseUm = fraseUm.toLowerCase();
   fraseDois = fraseDois.toLowerCase();
 
-  fraseUm == fraseDois ? console.log(true) : console.log(false);
+  let resultado = fraseUm == fraseDois ? true : false;
+  console.log(resultado);
 }
 
 // Exercício 10
 function checaRenovacaoRG() {
   // escreva seu código aqui
-  let anoAtual = prompt("ano atual");
-  let anoNasc = prompt("ano de nascimento");
-  let anoEmissao = prompt("emissao rg");
-
-  anoAtual = Number(anoAtual);
-  anoNasc = Number(anoNasc);
-  anoEmissao = Number(anoEmissao);
+  let anoAtual = Number(prompt("ano atual"));
+  let anoNasc = Number(prompt("ano de nascimento"));
+  let anoEmissao = Number(prompt("emissao rg"));
 
   idade = anoAtual - anoNasc;
   rg = anoAtual - anoEmissao;
 
-  if (idade <= 20 && rg >= 5) {
-    console.log(true);
-  } else if (idade > 20 && idade <= 50 && rg >= 10) {
-    console.log(true);
-  } else if (idade > 50 && rg >= 15) {
-    console.log(true);
-  } else {
-    console.log(false);
-  }
+  const teste1 = idade <= 20 && rg >= 5 ? true : false;
+  const teste2 = idade > 20 && idade <= 50 && rg >= 10 ? true : false;
+  const teste3 = idade > 50 && rg >= 15 ? true : false;
+
+  let resultado = teste1 || teste2 || teste3;
+
+  console.log(resultado);
 }
 
 // Exercício 11
@@ -154,22 +143,14 @@ function checaAnoBissexto() {
   let teste2 = ano % 4 == 0 ? true : false;
   let teste3 = ano % 100 == 0 ? true : false;
 
-  if (teste1) {
-    console.log(true);
-  } else if (teste2) {
-    if (teste3 && !teste1) {
-      console.log(false);
-    } else console.log(true);
-  } else {
-    console.log(false)
-  }
+  let resultado = teste1 || (teste2 && !(teste3 && !teste1));
+
+  console.log(resultado);
 }
 
 // Exercício 12
 function checaValidadeInscricaoLabenu() {
   // escreva seu código aqui
-
-  var labenu = [];
 
   let idade = prompt("idade");
   let ensino = prompt("ensino");
@@ -179,7 +160,7 @@ function checaValidadeInscricaoLabenu() {
   ensino.toLowerCase();
   disponivel.toLowerCase();
 
-  idade == "sim" && ensino == "sim" && disponivel == "sim"
-    ? console.log(true)
-    : console.log(false);
+  resultado = idade == "sim" && ensino == "sim" && disponivel == "sim" ? true : false;
+
+  console.log(resultado);
 }

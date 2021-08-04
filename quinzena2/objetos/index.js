@@ -152,10 +152,7 @@ comparaFilme(filme1, filme2);
 const controle = (nomeDaFruta) => {
   const novoCarrinho = carrinho;
   let i = novoCarrinho.indexOf(nomeDaFruta);
-  const frutaObj = {
-    ...novoCarrinho[i],
-    disponibilidade: !novoCarrinho[i].disponibilidade,
-  };
+  const frutaObj = { ...novoCarrinho[i], disponibilidade: !novoCarrinho[i].disponibilidade };
   novoCarrinho.splice(i, 0, frutaObj); // insere o novo objeto no indice original, que o fará ficar à frente do anterior
   novoCarrinho.splice(i + 1, 1); // Remove o objeto anterior que está +1 posição em relação à original
   return novoCarrinho;

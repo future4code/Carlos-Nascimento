@@ -13,7 +13,7 @@ console.log(valor);
 
 // 2)
 //      a. será impresso, individualmente, todos os numeros do array maiores que 18
-//      b. pode ser feito, basta utilizar o protótipo "keys"
+//      b. não é suficiente, mas pode-se usar uma variável auxiliar para isso
 
 // 3) O código adiciona asteriscos a uma string de acordo com o valor da variável de controle quantidadeAtual
 //     que está limitada ao valor inserido pelo usuário. No caso de quantidadeTotal == 4, serão 4 linhas com a quantidade
@@ -29,7 +29,7 @@ const petName = () => {
   const namesOfThePets = (amountOfPet) => {
     const names = [];
     for (let i = 0; i < amountOfPet; i++) {
-      names.push(prompt(`Digite o nome do seu pet número ${i + 1}`));
+      names.push(prompt(`Digite o nome do seu ${i + 1}º pet`));
     }
     return console.log(names);
   };
@@ -98,6 +98,66 @@ const valorMaiorMenor = (array) => {
 // valorDividido(arrayOriginal)
 // valoresPares(arrayOriginal)
 
-
-
 /////// DESAFIOS
+
+// 1)
+
+const vamosJogar = () => {
+  let numero = Number(prompt("Qual número tu pensou?"));
+  console.log("Vamos Jogar!");
+  let chute = Number(prompt("Qual número vai escolher?"));
+
+  for (let i = 1; ; i++) {
+    if (chute < numero) {
+      console.log(`
+                O número chutado foi: ${chute}
+                Errrrrrrrou, é maior
+                `);
+      chute = Number(prompt("Tente de novo!"));
+    } else if (chute > numero) {
+      console.log(`
+                O número chutado foi: ${chute}
+                Errrrrrrrou, é menor
+            `);
+      chute = Number(prompt("Tente de novo!"));
+    } else {
+      console.log(`
+                O número chutado foi: ${chute}
+                Acertou!!
+                O número de tentativas foi: ${i} `);
+      break;
+    }
+  }
+};
+
+// vamosJogar();
+
+const rageAgainstTheMachine = () => {
+  let numero = (Math.random() * 999).toFixed(0);
+  console.log("Que comecem os jogos!");
+  let chute = Number(prompt("Escolha um numero"));
+
+  for (let i = 1; ; i++) {
+    if (chute < numero) {
+      console.log(`
+                  O número chutado foi: ${chute}
+                  Errrrrrrrou, é maior
+                  `);
+      chute = Number(prompt("Tente de novo!"));
+    } else if (chute > numero) {
+      console.log(`
+                  O número chutado foi: ${chute}
+                  Errrrrrrrou, é menor
+              `);
+      chute = Number(prompt("Tente de novo!"));
+    } else {
+      console.log(`
+                  O número chutado foi: ${chute}
+                  Acertou, mizeravii!!
+                  O número de tentativas foi: ${i} `);
+      break;
+    }
+  }
+};
+
+// rageAgainstTheMachine()

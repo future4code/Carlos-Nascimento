@@ -31,7 +31,6 @@ function nossoJogo() {
     let pontosUsuario = somaPontos(cartasUsuario);
     let pontosComputador = somaPontos(cartasComputador);
     const resultado = () => {
-      res = ''
       if (pontosUsuario > pontosComputador) {
         res = "Usuário venceu!";
       } else if (pontosUsuario < pontosComputador) {

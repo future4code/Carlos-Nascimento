@@ -45,6 +45,9 @@ function comprarCarta() {
 
   return carta;
 }
+
+
+
 const cartasUsuario = [];
 const cartasPC = [];
 
@@ -77,13 +80,10 @@ const mostraCartas = (elemento) => elemento.texto;
 const novaRodada = (array) => {
   array.push(comprarCarta());
   somaPontos(cartasUsuario) > 21
-    ? console.log(
-        `Suas cartas são ${cartasUsuario
-          .map(mostraCartas)
-          .join(" ")}. Sua pontuação é ${somaPontos(
-          cartasUsuario
-        )}. Zói foi maior que a barriga, né? Perdeu, bê :(((`
-      )
+    ? console.log(`
+        Suas cartas são ${cartasUsuario.map(mostraCartas).join(" ")}.
+        Sua pontuação é ${somaPontos(cartasUsuario)}. 
+        Zói foi maior que a barriga, né? Perdeu, bê :(((`)
     : inicioDoJogo();
 };
 
@@ -100,44 +100,38 @@ function inicioDoJogo() {
 }
 
 const fimDeJogo = () => {
-  let somaUsuario = somaPontos(cartasUsuario);
-  let somaPC = somaPontos(cartasPC);
-  do {
-    cartasPC.push(comprarCarta());
-    somaPC = somaPontos(cartasPC);
-  } while (somaPC < somaUsuario);
+  let somaUsuario = somaPontos(cartasUsuario)
+  let somaPC = somaPontos(cartasPC)
+   do { 
+       cartasPC.push(comprarCarta())
+       somaPC = somaPontos(cartasPC)
+   } while (somaPC < somaUsuario)
 
-  const msgPcGanhou = `
-   Suas cartas são ${cartasUsuario
-     .map(mostraCartas)
-     .join(" ")}. Sua pontuação é ${somaUsuario}.
+   const msgPcGanhou = `
+   Suas cartas são ${cartasUsuario.map(mostraCartas).join(" ")}.
+   Sua pontuação é ${somaUsuario}.
    As cartas do Computador são ${cartasPC.map(mostraCartas).join(" ")}.
    It's dead, Jim :((( A máquina venceu
-       `;
+       `
+    
+    const msgUsuarioGanhou = `
+    Suas cartas são ${cartasUsuario.map(mostraCartas).join(" ")}.
+    Sua pontuação é ${somaUsuario}.
+    As cartas do Computador são ${cartasPC.map(mostraCartas).join(" ")}.
+    A pontuação dele é ${somaPC}
+    Você venceu!! Iuhaa
+    `
+    const empate = `
+    Suas cartas são ${cartasUsuario.map(mostraCartas).join(" ")}.
+    Sua pontuação é ${somaUsuario}.
+    As cartas do Computador são ${cartasPC.map(mostraCartas).join(" ")}.
+    A pontuação dele é ${somaPC}
+    Deu Empate!
+    `
 
-  const msgUsuarioGanhou = `
-    Suas cartas são ${cartasUsuario
-      .map(mostraCartas)
-      .join(" ")}. Sua pontuação é ${somaUsuario}.
-   As cartas do Computador são ${cartasPC
-     .map(mostraCartas)
-     .join(" ")}. A pontuação dele é ${somaPC}
-   Você venceu!! Iuhaa
-    `;
-  const empate = `
-    Suas cartas são ${cartasUsuario
-      .map(mostraCartas)
-      .join(" ")}. Sua pontuação é ${somaUsuario}.
-   As cartas do Computador são ${cartasPC
-     .map(mostraCartas)
-     .join(" ")}. A pontuação dele é ${somaPC}
-   Deu Empate!
-    `;
+    somaPC > 21 && somaUsuario < 21 ? console.log(msgUsuarioGanhou) : console.log(msgPcGanhou)
+    somaUsuario === somaPC ? console.log(empate) : false
 
-  somaPC > 21 && somaUsuario < 21
-    ? console.log(msgUsuarioGanhou)
-    : console.log(msgPcGanhou);
-  somaUsuario === somaPC ? console.log(empate) : false;
 };
 
 primeiraRodada();

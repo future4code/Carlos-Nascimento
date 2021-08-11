@@ -1,16 +1,3 @@
-/**
- * EXEMPLO DE UTILIZAÇÃO DA 'comprarCarta'
- * 
- * 
-    const carta = comprarCarta(); // Sorteia uma carta. Por exemplo, o rei de ouros
-    
-    console.log(carta.texto) // imprime o texto da carta. Exemplo: "K♦️" (indica "K" de ouros)
-    console.log(carta.valor) // imprime o valor da carta (um número). Exemplo: 10 (dado que "K" vale 10)
- * 
- * 
- * 
- */
-
 function comprarCarta() {
   // Cria array de cartas
   const cartas = [
@@ -77,8 +64,11 @@ const vrfCartasIniciais = () => {
 };
 
 const somaPontos = (objeto) => {
-  let resultado = 0
-  resultado = +objeto.valor;
+  let resultado = 0;
+  for (carta of objeto) {
+    resultado += carta.valor;
+  }
+
   return resultado;
 };
 
@@ -86,27 +76,68 @@ const mostraCartas = (elemento) => elemento.texto;
 
 const novaRodada = (array) => {
   array.push(comprarCarta());
-  inicioDoJogo();
+  somaPontos(cartasUsuario) > 21
+    ? console.log(
+        `Suas cartas são ${cartasUsuario
+          .map(mostraCartas)
+          .join(" ")}. Sua pontuação é ${somaPontos(
+          cartasUsuario
+        )}. Zói foi maior que a barriga, né? Perdeu, bê :(((`
+      )
+    : inicioDoJogo();
 };
 
-let pergunta = (cartasUsuario, cartasPC) => confirm(
-  `
- Suas cartas são ${cartasUsuario.map(mostraCartas).join(" ")}. 
- A carta revelada do computador é ${cartasPC[0].texto}.
- Deseja comprar mais uma carta?
-`
-);
-
 function inicioDoJogo() {
-  pergunta(cartasUsuario, cartasPC) ? novaRodada(cartasUsuario) : false;
-  while (cartasUsuario.map(somaPontos) < 21) {
-    novaRodada(cartasUsuario);
-  }
-  fimDeJogo();
+  confirm(
+    `
+           Suas cartas são ${cartasUsuario.map(mostraCartas).join(" ")}. 
+           A carta revelada do computador é ${cartasPC[0].texto}.
+           Deseja comprar mais uma carta?
+          `
+  )
+    ? novaRodada(cartasUsuario)
+    : fimDeJogo();
 }
 
 const fimDeJogo = () => {
-  console.log("Fim de jogo");
+  let somaUsuario = somaPontos(cartasUsuario);
+  let somaPC = somaPontos(cartasPC);
+  do {
+    cartasPC.push(comprarCarta());
+    somaPC = somaPontos(cartasPC);
+  } while (somaPC < somaUsuario);
+
+  const msgPcGanhou = `
+   Suas cartas são ${cartasUsuario
+     .map(mostraCartas)
+     .join(" ")}. Sua pontuação é ${somaUsuario}.
+   As cartas do Computador são ${cartasPC.map(mostraCartas).join(" ")}.
+   It's dead, Jim :((( A máquina venceu
+       `;
+
+  const msgUsuarioGanhou = `
+    Suas cartas são ${cartasUsuario
+      .map(mostraCartas)
+      .join(" ")}. Sua pontuação é ${somaUsuario}.
+   As cartas do Computador são ${cartasPC
+     .map(mostraCartas)
+     .join(" ")}. A pontuação dele é ${somaPC}
+   Você venceu!! Iuhaa
+    `;
+  const empate = `
+    Suas cartas são ${cartasUsuario
+      .map(mostraCartas)
+      .join(" ")}. Sua pontuação é ${somaUsuario}.
+   As cartas do Computador são ${cartasPC
+     .map(mostraCartas)
+     .join(" ")}. A pontuação dele é ${somaPC}
+   Deu Empate!
+    `;
+
+  somaPC > 21 && somaUsuario < 21
+    ? console.log(msgUsuarioGanhou)
+    : console.log(msgPcGanhou);
+  somaUsuario === somaPC ? console.log(empate) : false;
 };
 
 primeiraRodada();

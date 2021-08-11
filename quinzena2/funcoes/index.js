@@ -22,8 +22,8 @@ function minhasInfos() {
   console.log("1a. Meu nome é Vini, tenho 26 anos e sou estudante");
 }
 
-minhasInfos();
-
+/* minhasInfos();*/
+ 
 //      b)
 
 function inforPorParametros(nome, idade, cidade, prof) {
@@ -37,8 +37,8 @@ let idade = Number(prompt("Qual a sua idade?"));
 let cidade = prompt("Qual a sua cidade?");
 let profissao = prompt("Qual a sua profissao?");
 
-inforPorParametros(nome, idade, cidade, profissao);
-
+/* inforPorParametros(nome, idade, cidade, profissao);
+ */
 // 2)
 //      a)
 
@@ -46,23 +46,23 @@ function Soma(num1, num2) {
   return console.log(`2a. ${num1 + num2}`);
 }
 
-Soma(5, 8);
-
+/* Soma(5, 8);
+ */
 //      b)
 
 function Maior(num1, num2) {
   let maior = num1 >= num2 ? true : false;
   console.log(`2b. ${maior}`);
 }
-Maior(13, 12);
-
+/* Maior(13, 12);
+ */
 //      c)
 
 function isPar(num) {
   console.log(`2c. ${num % 2 == 0 ? true : false}`);
 }
 
-isPar(5);
+/* isPar(5); */
 
 //      d)
 
@@ -108,7 +108,7 @@ function callOperations() {
   );
 }
 
-callOperations();
+/* callOperations(); */
 
 // ========================================================
 

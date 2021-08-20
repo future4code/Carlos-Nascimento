@@ -1,0 +1,71 @@
+body {
+  color: black;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin: 0;
+  font-weight: 400;
+  background: radial-gradient(
+    circle,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(16, 75, 11, 0.896796218487395) 0%,
+    rgba(229, 241, 209, 0.4290091036414566) 100%
+  );
+}
+
+header {
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(16, 75, 11, 0.896796218487395) 0%,
+    rgba(186, 252, 69, 0.9023984593837535) 100%
+  );
+  padding: 20px;
+  box-shadow: 10px 5px 5px olive;
+}
+
+header .menu {
+  margin-top: 15px;
+  margin-left: 10px;
+}
+header a {
+  text-decoration: none;
+  margin-left: 10px;
+  color: rgba(255, 250, 240, 0.527);
+}
+
+header .bemvindo {
+  background-color: rgba(255, 250, 240, 0.527);
+  border-radius: 20px;
+  padding: 20px 20px;
+  width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.content {
+  width: 90%;
+  padding: 20px;
+  margin: 50px auto;
+  color: black;
+  text-align: center;
+  border-radius: 20px;
+  background-color: rgba(255, 250, 240, 0.527);
+  font-weight: 400;
+
+}
+
+.content img{
+  border-radius: 10px;
+}
+
+.content h1 {
+  text-align: center;
+}
+.descricao {
+}
+
+.banner {
+  width: 500px;
+  height: 500px;
+  margin-left: 10px;
+}

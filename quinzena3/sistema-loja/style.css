@@ -1,21 +1,20 @@
 body {
   color: black;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 0;
   font-weight: 400;
-  background: rgba(2, 0, 36, 0.322);
+  background: linear-gradient(
+    0deg,
+    rgba(93, 25, 63, 0.8211659663865546) 38%,
+    rgba(195, 34, 34, 0.5942752100840336) 64%
+  );
 }
 
 header {
-  background: rgb(131, 58, 180);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(121, 9, 120, 0.6811099439775911) 35%,
-    rgba(0, 121, 255, 1) 100%
-  );
+  background: antiquewhite;
   padding: 20px;
-  box-shadow: 10px 10px 15px 15px rgba(0, 0, 0, 0.438);
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.438);
 }
 
 header .menu {
@@ -25,21 +24,16 @@ header .menu {
 header a {
   text-decoration: none;
   margin-left: 10px;
-  color: rgba(255, 250, 240, 0.527);
+  color: rgb(59, 59, 59);
 }
 
 header .bemvindo {
-  background-color: rgba(255, 250, 240, 0.527);
-  border-radius: 20px;
-  padding: 20px 20px;
-  width: 95%;
-  margin: 0 auto;
   text-align: center;
+  color: rgb(59, 59, 59);
 }
 
 header .letreiro {
   display: inline-block;
-  color: rgba(14, 11, 4, 0.527);
 }
 
 header .bemvindo img {
@@ -55,37 +49,34 @@ header .bemvindo img {
   color: black;
   text-align: center;
   border-radius: 20px;
-  background-color: rgba(255, 250, 240, 0.527);
+  background-color: antiquewhite;
   font-weight: 400;
-}
-
-.content img {
-  border-radius: 10px;
 }
 
 .content h1 {
   text-align: center;
 }
 
-.banner {
-  width: 500px;
-  height: 500px;
-  margin-left: 10px;
+.descricao{
+  width: 800px;
+  margin: 0 auto;
+}
+
+.vitrine {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  border-radius: 10px;
 }
 
 footer {
   height: 200px;
-  width: 95%;
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(121, 9, 120, 0.6811099439775911) 35%,
-    rgba(0, 121, 255, 1) 100%
-  );
+  background: antiquewhite;
+
   text-align: center;
   padding: 30px;
-  color: rgba(255, 250, 240, 0.527);
-  box-shadow: 10px 10px 15px 15px rgba(0, 0, 0, 0.438);
+  color: rgb(59, 59, 59);
+  margin: 0 auto;
 }
 
 footer img {
@@ -93,3 +84,51 @@ footer img {
   height: 50px;
   padding: 30px 20px;
 }
+
+/* Controle de Estoque */
+
+table {
+  margin-top: 50px;
+  width: 100%;
+}
+
+tr td {
+  padding: 10px;
+}
+tr td img {
+  border-radius: 30px;
+}
+
+.impar{
+  background: rgba(255, 127, 80, 0.541);
+
+}
+
+/* Adicionar Produto */
+form {
+  width: 63%;
+  text-align: right;
+}
+
+.campo-form {
+  padding: 5px;
+}
+.campo-form label {
+  padding-right: 20px;
+}
+
+.campo-form input {
+  margin-right: 0;
+}
+
+/* Funcionários */
+.staff {
+  text-align: center;
+}
+.staff li{
+  list-style: none;
+  padding: 15px;
+  text-align: center;
+}
+
+

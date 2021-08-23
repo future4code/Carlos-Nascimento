@@ -114,8 +114,7 @@ tr td img {
 
 /* Adicionar Produto */
 form {
-  padding-top: 5%;
-  width: 63%;
+  width: 60%;
   height: 100%;
   text-align: right;
 }
@@ -123,6 +122,7 @@ form {
 .campo-form {
   padding: 5px;
 }
+
 .campo-form label {
   padding-right: 20px;
 }

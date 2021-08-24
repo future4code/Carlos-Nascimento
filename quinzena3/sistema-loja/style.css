@@ -7,12 +7,6 @@ body {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 0;
   font-weight: 400;
-/*   background: linear-gradient(
-    0deg,
-    rgba(93, 25, 63, 0.8211659663865546) 38%,
-    rgba(195, 34, 34, 0.5942752100840336) 64%
-  ); */
-
   background: url("img/bg.jpg");
 }
 
@@ -34,7 +28,7 @@ header a {
   height: 100%;
 }
 
-header a:hover{
+header a:hover {
   transition: all 1s;
   background: chocolate;
   color: white;
@@ -72,12 +66,13 @@ header .bemvindo img {
 
 footer {
   height: 200px;
+  width: 100%;
   background: antiquewhite;
-
   text-align: center;
   padding: 30px;
   color: rgb(59, 59, 59);
-  margin-bottom: 0px;
+  position: relative;
+  bottom: 0px;
 }
 
 footer img {
@@ -102,7 +97,6 @@ footer img {
   border-radius: 10px;
 }
 
-
 /* Controle de Estoque */
 
 table {
@@ -120,8 +114,6 @@ tr td img {
 .impar {
   background: rgba(255, 127, 80, 0.541);
 }
-
-
 
 /* Adicionar Produto */
 form {
@@ -142,7 +134,7 @@ form {
   margin-right: 0;
 }
 
-.produto{
+.produto {
   height: 38.5vh;
 }
 

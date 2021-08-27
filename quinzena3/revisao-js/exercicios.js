@@ -276,7 +276,10 @@ retornaPessoasNaoAutorizadas([
 ])
 
 // EXERCÍCIO 19A
-function ordenaPorNome(consultasNome) {}
+function ordenaPorNome(consultasNome) {
+
+  return consultasNome.sort()
+}
 
 // EXERCÍCIO 19B
 function ordenaPorData(consultasData) {}

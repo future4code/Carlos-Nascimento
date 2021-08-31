@@ -149,3 +149,10 @@ td button:hover{
 #back-button:hover {
   background-color: #635a3d;
 }
+
+.tabela{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}

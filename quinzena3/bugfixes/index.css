@@ -79,8 +79,6 @@ div img {
   background-color: #e7eb90;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 2vh;
 }
 
 #container-para-comprar > p {

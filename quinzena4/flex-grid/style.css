@@ -50,7 +50,7 @@ main {
   min-width: 460px;
 }
 
-.menu-lateral {
+nav {
   background-color: #f2d0e0;
   display: flex;
   flex-direction: column;
@@ -81,7 +81,7 @@ main {
   margin-right: 15px;
 }
 
-.menu-lateral img {
+nav img {
   width: 25px;
   height: 25px;
 }

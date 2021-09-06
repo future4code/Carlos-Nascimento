@@ -1,0 +1,60 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: black;
+}
+
+.page-container{
+    display: grid;
+    grid-template-rows: 40px 1fr 80px 80px 40px;
+    grid-template-columns: repeat(4, 1fr);
+    height: 100vh;
+}
+header, menu, .content-um, .content-dois, .image, .extra, footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header{
+    background-color: green;
+
+}
+
+menu {
+    background-color: yellow;
+    grid-column: 2/-1;
+}
+
+.content-um{
+    background-color: magenta;
+    grid-column: 1/-1;
+
+}
+
+.content-dois{
+    background-color: blue; 
+    grid-row: 3/5;  
+    grid-column: 1/3;
+
+}
+
+.image{
+    background-color: red;
+    grid-column: 4/5;
+}
+
+.extra{
+    background-color: seagreen;
+    grid-row: 4/5;
+    grid-column: 4/5;
+
+}
+
+footer{
+    background-color: slateblue;
+    grid-column: 1/-1;
+    grid-row: 5/6;
+    
+}

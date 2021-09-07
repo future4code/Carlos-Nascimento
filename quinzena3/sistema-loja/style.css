@@ -7,17 +7,16 @@ body {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 0;
   font-weight: 400;
+  background: url("img/bg.jpg");
+}
+
+header {
+  background: rgba(250, 235, 215, 0.959);
   background: linear-gradient(
     0deg,
     rgba(93, 25, 63, 0.8211659663865546) 38%,
     rgba(195, 34, 34, 0.5942752100840336) 64%
   );
-}
-
-header {
-  background: antiquewhite;
-  padding: 20px;
-  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.438);
 }
 
 header .menu {
@@ -28,6 +27,14 @@ header a {
   text-decoration: none;
   margin-left: 10px;
   color: rgb(59, 59, 59);
+  width: 100%;
+  height: 100%;
+}
+
+header a:hover {
+  transition: all 1s;
+  background: chocolate;
+  color: white;
 }
 
 header .bemvindo {
@@ -63,11 +70,12 @@ header .bemvindo img {
 footer {
   height: 200px;
   background: antiquewhite;
-
   text-align: center;
   padding: 30px;
   color: rgb(59, 59, 59);
-  margin-bottom: 0px;
+  position: relative;
+  bottom: 0px;
+
 }
 
 footer img {
@@ -110,12 +118,10 @@ tr td img {
   background: rgba(255, 127, 80, 0.541);
 }
 
-
-
 /* Adicionar Produto */
 form {
-  padding-top: 5%;
-  width: 63%;
+  width: 60%;
+
   height: 100%;
   text-align: right;
 }
@@ -123,6 +129,7 @@ form {
 .campo-form {
   padding: 5px;
 }
+
 .campo-form label {
   padding-right: 20px;
 }
@@ -131,7 +138,7 @@ form {
   margin-right: 0;
 }
 
-.produto{
+.produto {
   height: 38.5vh;
 }
 

@@ -38,21 +38,22 @@ export default function CardTrack(props) {
           "Esta ação deletará esta música para sempre. Deseja continuar?",
       })
     ) {
-      removeTrack(props.id);
+      removeTrack(props.playlistIdentifier, props.trackIdentifier);
     } else {
       return;
     }
   };
   return (
-    <PlaylistContainer>
-      <Box sx={style}>
-        <List>
-          <ListItem key={props.id} >
+    <PlaylistContainer >
+      <Box sx={style} >
+        <List >
+          <ListItem  >
             <ListItemButton>
               <ListItemIcon>
                 <PlayArrowIcon color="primary" />
               </ListItemIcon>
-              <ListItemText primary={props.name} />
+              <ListItemText  primary={props.name} />
+              <ListItemText primary={props.artist} />
             </ListItemButton>
             <ListItemButton
               onClick={handleOnClick}

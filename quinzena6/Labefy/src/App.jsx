@@ -1,6 +1,5 @@
 import StateContextProvider from "./context/StateContext";
 import { createGlobalStyle } from "styled-components";
-import Home from "./pages/Home";
 import Rotas from "./pages/Rotas";
 
 

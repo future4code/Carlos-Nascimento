@@ -7,7 +7,6 @@ import ArrowBack from "../components/ArrowBack";
 import SearchAppBar from "../components/SearchBar";
 import { useHistory } from "react-router";
 
-
 const PlaylistsContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -20,7 +19,7 @@ const PlaylistsContainer = styled.div`
 
   color: whitesmoke;
 
-  .tituloDePlaylist{
+  .tituloDePlaylist {
     width: 100%;
   }
 
@@ -36,9 +35,7 @@ export default function Playlist() {
   const getPlaylists = data.getAllPlaylists;
   const loading = data.loading;
   const result = data.result;
-  const query = data.query
-
-
+  const query = data.query;
 
   useEffect(() => {
     getPlaylists();
@@ -46,21 +43,24 @@ export default function Playlist() {
 
   function handleRendering() {
     if (loading === false) {
-      return result.filter(
-        value => {
-         return value.name.toLowerCase().includes(query.toLowerCase())
-        }
-      )
-      .map((value) => {
-        if (result.length === 0) {
-          return <h1>Ahh, não temos playlist ainda :/ </h1>;
-        }
-        return (
-          <div className='tituloDePlaylist'>
-            <CardPlaylist name={value.name} id={value.id}/>
-          </div>
-        );
-      })
+      return result
+        .filter((value) => {
+          return value.name.toLowerCase().includes(query.toLowerCase());
+        })
+        .map((value) => {
+          if (result.length === 0) {
+            return <h1>Ahh, não temos playlist ainda :/ </h1>;
+          }
+          return (
+            <div className="tituloDePlaylist">
+              <ul>
+                <li>
+                  <CardPlaylist name={value.name} id={value.id} />
+                </li>
+              </ul>
+            </div>
+          );
+        });
     } else if (loading === true || loading === "initial") {
       return <Loading />;
     }
@@ -69,12 +69,11 @@ export default function Playlist() {
   return (
     <PlaylistsContainer>
       <ArrowBack />
-      <SearchAppBar/>
+      <SearchAppBar />
       <div>
         <h1>Estas são as playlists que todo mundo está ouvindo!</h1>
       </div>
       {handleRendering()}
-
     </PlaylistsContainer>
   );
 }

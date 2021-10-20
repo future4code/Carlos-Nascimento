@@ -17,7 +17,7 @@ const ScaleIn = keyframes`
 
 
 const HomeCard = styled.div`
-  height: 30vh;
+  height: fit-content;
   width: 30vw;
   padding: 2.5rem;
   background-color: ${(props) => props.color || "black"};

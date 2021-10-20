@@ -16,7 +16,7 @@ export default function Rotas() {
             <Route component = { Home } path="/" exact />
             <Route component = { CriarPlaylist } path="/criar" exact />
             <Route component = { Playlist } path="/todas" exact />
-            <Route component = { TracksContainer } path='/tracks' />
+            <Route component = { TracksContainer } path={`/tracks/${page}`} />
         </BrowserRouter>
 
     )

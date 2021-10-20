@@ -19,7 +19,7 @@ const PlaylistsContainer = styled.div`
 
   color: whitesmoke;
 
-  .tituloDeTrack{
+  .tituloDeTrack {
     width: 100%;
   }
 
@@ -35,29 +35,36 @@ export default function TracksContainer() {
   const getTracks = data.getPlaylistTracks;
   const loading = data.loading;
   const result = data.result;
-  const query = data.query
+  const query = data.query;
+  const setPlaylisId = data.setPlaylistId;
+  let playlistIdentifier = window.location.pathname.split("/")[2];
 
   useEffect(() => {
-    getTracks();
+    getTracks(playlistIdentifier);
   }, []);
 
   function handleRendering() {
     if (loading === false) {
-      return result.filter(
-        value => {
-         return value.name.toLowerCase().includes(query.toLowerCase())
-        }
-      )
-      .map((value) => {
-        if (result.length === 0) {
-          return <h1>Ahh, não temos músicas ainda... Vamos começar? :/ </h1>;
-        }
-        return (
-          <div className='tituloDeTrack'>
-            <CardTrack name={value.name} id={value.id} />
-          </div>
-        );
-      })
+      return result
+        .filter((value) => {
+          return value.name.toLowerCase().includes(query.toLowerCase());
+        })
+        .map((value) => {
+          if (result.length === 0) {
+            return <h1>Ahh, não temos músicas ainda... Vamos começar? :/ </h1>;
+          }
+          return ( 
+            <div className="tituloDeTrack" key={value.id}
+            >
+              <CardTrack
+                name={value.name}
+                trackIdentifier={value.id}
+                playlistIdentifier={playlistIdentifier}
+                artist={value.artist}
+              />
+            </div>
+          );
+        });
     } else if (loading === true || loading === "initial") {
       return <Loading />;
     }
@@ -66,12 +73,11 @@ export default function TracksContainer() {
   return (
     <PlaylistsContainer>
       <ArrowBack />
-      <SearchAppBar/>
+      <SearchAppBar />
       <div>
-      <ControlledAccordions></ControlledAccordions>
+        <ControlledAccordions></ControlledAccordions>
       </div>
       {handleRendering()}
-
     </PlaylistsContainer>
   );
 }

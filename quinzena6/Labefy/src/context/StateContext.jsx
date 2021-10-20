@@ -8,10 +8,10 @@ export default function StateContextProvider({ children }) {
   const [loading, setLoading] = useState("initial");
   const [newPlaylist, setNewPlaylist] = useState("");
   const [playlistIdProps, setPlaylistId] = useState("");
-  const [newTrack, setNewTrack] = useState({ name: "", artist: "", url: "" });
+  const [newTrack, setNewTrack] = useState({ name: '', artist: '', url: ''});
   const [playlistName, setPlaylistName] = useState("")
   const [query, setQuery] = useState("")
-  const [ trackId, setTrackId] = useState("")
+  // const [ trackId, setTrackId] = useState("")
 
 
   async function searchPlaylist() {
@@ -54,12 +54,12 @@ export default function StateContextProvider({ children }) {
       })
   }
   
-    async function getPlaylistTracks() {
+    async function getPlaylistTracks(PlId) {
         setLoading(true)
   
       await axios
         .get(
-          `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${playlistIdProps}/tracks`,
+          `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${PlId}/tracks`,
           {
             headers: {
               authorization: "carlos-nascimento-banu",
@@ -73,12 +73,12 @@ export default function StateContextProvider({ children }) {
         })
     }
   
-    async function removeTrackFromPlaylist() {
+    async function removeTrackFromPlaylist(playlistIdentifier, trackId) {
         setLoading(true)
   
       await axios
         .delete(
-          `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${playlistIdProps}/tracks/${trackId}`,
+          `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${playlistIdentifier}/tracks/${trackId}`,
           {
             headers: {
               authorization: "carlos-nascimento-banu",
@@ -101,16 +101,15 @@ export default function StateContextProvider({ children }) {
 
 
   async function addNewTrackToPlaylist(playlistId) {
-    await axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${playlistId}/tracks`, {
-        headers: {
-            authorization: "carlos-nascimento-banu",
-          },
+    await axios(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${playlistId}/tracks`, {
+        method: 'post',
+        headers: { authorization: "carlos-nascimento-banu" },
           data: {
             name: `${newTrack.name}`,
             artist:`${newTrack.artist}`,
             url:`${newTrack.url}`
           }
-    })
+    }).then( response => console.log(response))
   }
 
   async function removePlaylist(playlistId) {

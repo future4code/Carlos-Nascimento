@@ -51,7 +51,7 @@ export default function CardPlaylist(props) {
             <ListItemButton
               onClick={(_) => {
                 setPlaylistId(props.id);
-                history.push("/tracks");
+                history.push(`/tracks/${props.id}`);
               }}
             >
               <ListItemIcon>

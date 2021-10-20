@@ -38,28 +38,27 @@ export default function ControlledAccordions() {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            <form action="" name="novaFaixa">
+            <form action="" name="novaFaixa" onSubmit = { e => e.preventDefault()}>
               <input
                 type="text"
                 name="newTrackName"
                 value={newTrack.name}
                 placeholder="Nome da Faixa"
-                onChange={(e) => setNewTrack({ name: e.target.value })}
+                onChange={(e) => setNewTrack({ ...newTrack, name: e.target.value })}
               />
               <input
                 type="text"
                 name="newTrackArtist"
                 value={newTrack.artist}
                 placeholder="Nome do Artista"
-                onChange={(e) => setNewTrack({ artist: e.target.value })}
+                onChange={(e) => setNewTrack({ ...newTrack, artist: e.target.value })}
               />
               <input
                 type="text"
                 name="newTrackURL"
                 value={newTrack.url}
                 placeholder="URL da música"
-                onChange={(e) => setNewTrack({ url: e.target.value })}
+                onChange={(e) => setNewTrack({ ...newTrack, url: e.target.value })}
               />
               <button
                 type="submit"
@@ -70,7 +69,6 @@ export default function ControlledAccordions() {
                 Adicionar Faixa{" "}
               </button>
             </form>
-          </Typography>
         </AccordionDetails>
       </Accordion>
     </div>

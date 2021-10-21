@@ -34,5 +34,4 @@ export const PostPhoto = styled.img`
 
 export const CommentContainer = styled.div`
     margin-left: 10px;
-
 `

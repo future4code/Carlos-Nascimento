@@ -1,6 +1,6 @@
 # LABEFY
 
-https://hysterical-library.surge.sh
+https://kind-anger.surge.sh/
 
 * Projeto construído utilizando bibliotecas MUI, React.Js, Styled-Components.
 * A ideia foi explorar o universo das requisições assíncronas e a organização do app com o Context API do React

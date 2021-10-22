@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import styled from "styled-components";
 import { useData } from "../context/StateContext";
 import LinearIndeterminate from "../components/LoadingLinear";
@@ -140,6 +141,8 @@ export default function CriarPlaylist() {
   const [verifying, setVerifying] = useState(false);
   const [feedback, setFeedback] = useState("whitesmoke");
 
+  const history = useHistory()
+
   const data = useData();
   const create = data.createPlaylist;
   const getPlaylists = data.getAllPlaylists;
@@ -213,6 +216,7 @@ export default function CriarPlaylist() {
         <DoubleArrowIcon
           className="doubleIcon"
           sx={{ color: "#07f107", fontSize: 48 }}
+          onClick={ _ => history.push("/todas")}
         />
       )}
     </Formulario>

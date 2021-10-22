@@ -28,6 +28,8 @@ export default function CardPlaylist(props) {
   const data = useData();
   const removePlaylist = data.removePlaylist;
   const setPlaylistId = data.setPlaylistId;
+  const setRemoved = data.setRemoved;
+  let removed = data.removed
 
   const history = useHistory();
 
@@ -38,6 +40,7 @@ export default function CardPlaylist(props) {
           "Esta ação deletará esta playlist para sempre Deseja continuar?",
       })
     ) {
+      setRemoved(!removed)
       removePlaylist(props.id);
     } else {
       return;
@@ -47,7 +50,7 @@ export default function CardPlaylist(props) {
     <PlaylistContainer>
       <Box sx={style}>
         <List>
-          <ListItem key={props.id} >
+          <ListItem >
             <ListItemButton
               onClick={(_) => {
                 setPlaylistId(props.id);

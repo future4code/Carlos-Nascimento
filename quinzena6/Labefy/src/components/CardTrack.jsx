@@ -29,7 +29,8 @@ export default function CardTrack(props) {
 
   const data = useData();
   const removeTrack = data.removeTrackFromPlaylist;
-  const playListId = data.playlistIdProps
+  const setRemoved = data.setRemoved
+  const removed = data.removed
 
   const handleOnClick = async () => {
     if (
@@ -39,6 +40,7 @@ export default function CardTrack(props) {
       })
     ) {
       removeTrack(props.playlistIdentifier, props.trackIdentifier);
+      setRemoved(!removed)
     } else {
       return;
     }

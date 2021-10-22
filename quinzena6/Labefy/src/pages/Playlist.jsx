@@ -36,10 +36,11 @@ export default function Playlist() {
   const loading = data.loading;
   const result = data.result;
   const query = data.query;
+  const removed = data.removed
 
   useEffect(() => {
     getPlaylists();
-  }, []);
+  }, [removed]);
 
   function handleRendering() {
     if (loading === false) {
@@ -52,13 +53,7 @@ export default function Playlist() {
             return <h1>Ahh, não temos playlist ainda :/ </h1>;
           }
           return (
-            <div className="tituloDePlaylist">
-              <ul>
-                <li>
                   <CardPlaylist name={value.name} id={value.id} />
-                </li>
-              </ul>
-            </div>
           );
         });
     } else if (loading === true || loading === "initial") {

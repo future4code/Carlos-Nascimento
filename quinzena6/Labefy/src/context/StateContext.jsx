@@ -11,6 +11,7 @@ export default function StateContextProvider({ children }) {
   const [newTrack, setNewTrack] = useState({ name: '', artist: '', url: ''});
   const [playlistName, setPlaylistName] = useState("")
   const [query, setQuery] = useState("")
+  const [removed, setRemoved] = useState(false)
   // const [ trackId, setTrackId] = useState("")
 
 
@@ -70,6 +71,7 @@ export default function StateContextProvider({ children }) {
           setResult(response.data.result.tracks)
           console.log('done')
           setLoading(false);
+
         })
     }
   
@@ -146,6 +148,8 @@ export default function StateContextProvider({ children }) {
         setQuery,
         getPlaylistTracks,
         removeTrackFromPlaylist,
+        removed,
+        setRemoved,
       }}>
       
       {children}
@@ -179,6 +183,8 @@ export function useData(){
         setQuery,
         getPlaylistTracks,
         removeTrackFromPlaylist,
+        removed,
+        setRemoved,
       } = context
 
       return {
@@ -202,6 +208,8 @@ export function useData(){
         query,
         setQuery,
         getPlaylistTracks,
-        removeTrackFromPlaylist
+        removeTrackFromPlaylist,
+        removed,
+        setRemoved,
       }
 }

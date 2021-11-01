@@ -1,18 +1,23 @@
 import Home from './pages/Home';
 import { createGlobalStyle } from 'styled-components';
+import {routes as Routes} from './routes/routes';
 
 const GlobalStyle = createGlobalStyle`
+*{
+  margin: 0;
+  padding: 0;
+}
 
 body{
   box-sizing: border-box;
-  background-color: #C1B2F4;
+  background-color: rgba(168,10,63,1);
   height: 100vh;
   width: 100vw;
-
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  font-family: 'Poppins', sans-serif;
 }
 
 `
@@ -20,7 +25,7 @@ body{
 function App() {
   return <>
   <GlobalStyle></GlobalStyle>
-  <Home></Home>
+  <Routes/>
   </>
 }
 

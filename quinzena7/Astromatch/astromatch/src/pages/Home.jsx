@@ -1,52 +1,93 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-const HomeComponent = styled.div`
-display: flex;
-flex-direction: column;
-height: 80vh;
-width: 40vw;
-//border: solid red 1px;
-background-color: #DBCEF7;
-box-shadow: 5px 5px 20px #4a358d;
-overflow: hidden;
+import match from "../img/match.svg";
+import loadingImg from "../img/loading.gif";
+import { HomeComponent, PageContainer } from '../styles/Home.js'
+import NoMoreMatches from "../components/NoMoreMatches";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
-.header{
-    height: 80px;
-    width: 100%;
-    background-color: #EFEBFE;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px 0 10px;
-}
-
-.content{
-    height: 100%;
-    width: 100%;
-    border: solid 1px red;
-
-}
-
-`
 
 
 export default function Home() {
-    return (
-        <HomeComponent>
-            <div className="header">
-            </div>
+  const [user, setUser] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [matchStamp, setMatchStamp] = useState(false);
+  const [isOver, setisOver] = useState(false);
 
-            <div className="content">
-                <div className="arrow-right">
-                    <h1> seta </h1>
-                </div>
-                <div className="arrow-left">
-                    <h1>seta</h1>
-                </div>
+  const handleMatch = () =>{
+    setMatchStamp(true);
+    setTimeout(() => {
+      getData()}, 3000) 
+    }
 
-            </div>
-        </HomeComponent>
+  const handleNotMatch = () => {
+     getData()
+  }
+
+
+  async function getData() {
+    setLoading(true);
+    setMatchStamp(false)
+    await axios
+      .get(
+        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/carlos-nascimento/person"
+      )
+      .then((resp) => {
+        setUser({ ...resp.data.profile });
+        resp.data.profile === null && setisOver(true)
+        setLoading(false);
+          });
+  }
+
+
+  async function pichPerson() {
+    await axios(
+      'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/carlos-nascimento/choose-person',{
+        method: 'post',
+        data:{
+          id: `${user.id}`,
+          choice: true
+        }
+      }
+    ).then(
+      res =>{
+        res.data.isMatch === true ? handleMatch() : handleNotMatch()
+      }
     )
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  return (
+    <PageContainer>
+      <HomeComponent matchStamp={matchStamp} isOver={isOver}>
+        <Header/>
+        <div className="content">
+          {loading ? (
+            <div className="loading">
+              <img src={loadingImg} alt="carregando" id='loadingImg'/>
+            </div>
+          ) : (
+            isOver ? 
+            <NoMoreMatches/>
+            :
+            <div className="img-container">
+              <h1>{user.name}</h1>
+              <h2>{user.age} anos</h2>
+              <img src={match} alt="" className="match" />
+              <img src={user.photo} alt="" className="main-pic" />           
+              <div className="description">
+                <p>{user.bio}</p>
+              </div>
+            </div>
+          )}
+        </div>
+        <Footer pichPerson={pichPerson} getData={getData}/>
+      </HomeComponent>
+    </PageContainer>
+  );
 }

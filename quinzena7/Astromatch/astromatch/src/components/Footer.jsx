@@ -5,7 +5,7 @@ import profile from "../img/profile.png";
 import list from "../img/list.png";
 import {useHistory} from 'react-router-dom'
 
-import { FooterComponent } from '../styles/Home';
+import { FooterComponent } from '../styles/styles';
 
 export default function Footer(props) {
    

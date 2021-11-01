@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { createGlobalStyle } from "styled-components";
 import { keyframes } from "styled-components";
 
 const entrance = keyframes` 
@@ -71,6 +72,24 @@ const entranceMatch = keyframes`
   }
 `;
 
+const GlobalStyle = createGlobalStyle`
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  box-sizing: border-box;
+  background-color: rgba(168,10,63,1);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  font-family: 'Poppins', sans-serif;
+}`
+
 const PageContainer = styled.div`
   height: 100vh;
   width: 100vw;
@@ -93,18 +112,21 @@ const HomeComponent = styled.div`
   border-radius: 10px;
   position: relative;
 
-
-
-  .content {
+  @media only screen and (max-width: 1366px) {
     height: 600px;
-    width: 100%;
-    //border: solid 1px red;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    animation: ${(props) => `${props.animate}`};
-    background-color: #fdfcfb;
   }
+`;
+
+const ContentComponent = styled.div`
+  height: 600px;
+  width: 100%;
+  //border: solid 1px red;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: ${(props) => `${props.animate}`};
+  background-color: #fdfcfb;
+
   .loading {
     height: 100%;
     width: 100%;
@@ -180,10 +202,6 @@ const HomeComponent = styled.div`
       align-items: center;
     }
   }
-
-  @media only screen and (max-width: 1366px) {
-    height: 600px;
-  }
 `;
 
 const FooterComponent = styled.div`
@@ -228,4 +246,94 @@ const FooterComponent = styled.div`
   }
 `;
 
-export { PageContainer, HomeComponent, FooterComponent };
+const FooterMatchesComponent = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 15px;
+  padding-right: 15px;
+  align-items: center;
+  height: 90px;
+  background-color: rgba(168, 10, 63, 1);
+
+  .get-back,
+  .clear {
+    img {
+      height: 40px;
+      width: 40px;
+      &:hover {
+        transform: scale(1.2);
+        transition: all 0.5s;
+      }
+    }
+  }
+`;
+
+const HeaderComponent = styled.div`
+  height: 60px;
+  width: 100%;
+  background-color: rgba(168, 10, 63, 1);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px 0 10px;
+
+  img {
+    height: 100px;
+    width: 300px;
+  }
+`;
+
+const NoMatches = styled.div`
+  height: 90%;
+  width: 100%;
+
+  color: gray;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: justify;
+
+  h4 {
+    width: 50%;
+  }
+`;
+
+const MatchesComponent = styled.div`
+  height: 100%;
+  width: 100%;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #fdfcfb;
+
+  #loading {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      height: 200px;
+      width: 200px;
+    }
+  }
+`;
+
+export {
+  GlobalStyle,
+  PageContainer,
+  HeaderComponent,
+  HomeComponent,
+  FooterComponent,
+  FooterMatchesComponent,
+  NoMatches,
+  MatchesComponent,
+  ContentComponent,
+};

@@ -105,22 +105,28 @@ const HomeComponent = styled.div`
   flex-direction: column;
   height: 750px;
   width: 30vw;
-  //border: solid #FEDC00 10px;
   background-color: whitesmoke;
   box-shadow: 5px 5px 25px whitesmoke;
   overflow: hidden;
   border-radius: 10px;
   position: relative;
 
+
   @media only screen and (max-width: 1366px) {
     height: 600px;
+  }
+
+  @media only screen and (max-width: 900px) {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
   }
 `;
 
 const ContentComponent = styled.div`
   height: 600px;
   width: 100%;
-  //border: solid 1px red;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -275,13 +281,40 @@ const HeaderComponent = styled.div`
   background-color: rgba(168, 10, 63, 1);
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   padding: 0 10px 0 10px;
-
-  img {
+  position: relative;
+  
+  .user-name{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 14px;
+    color: whitesmoke;
+    width: fit-content;
+    position: absolute;
+    left: 10px;
+  }
+  img{
     height: 100px;
-    width: 300px;
+    width: 100px;
+  }
+
+  button{
+    height: 30px;
+    width: 60px;
+    border-radius: 10px;
+    border: none;
+    background-color: #7e1e3e;
+    color: whitesmoke;
+    position: absolute;
+    right: 30px;
+
+    &:hover{
+    background-color: #740c2f;
+    transition: all .5s;
+}
   }
 `;
 

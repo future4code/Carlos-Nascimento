@@ -9,7 +9,6 @@ export default function HandleDataContextProvider({ children }) {
   const [loading, setLoading] = useState(false);
   const [matchStamp, setMatchStamp] = useState(false);
   const [isOver, setisOver] = useState(false);
-  
   const [matches, setMatches] = useState([]);
   const [noMatches, setNoMatches] = useState(false);
   const [reload, setReload] = useState(true);

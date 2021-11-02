@@ -1,6 +1,6 @@
 # Astromatch!
 
-- Link: http://new-quicksand.surge.sh/
+- Link: [Astromatch](https://eatable-dog.surge.sh/)
 
 ### O Astromatch é um projeto que tende a simular o Tinder. A intenção aqui é por em prática conteúdos como consumo de APIs e requisições assíncronas.
 
@@ -9,13 +9,15 @@
 - App avisa instataneamente se sua escolha gerou um match
 - Feedbacks ao usuário
 - Limpar todos os matches
+- Login com a conta do Google
 
 # O que não está funcionando?
 
 - Responsividade para mobile
-- Login com a conta do Google (em breve!)
 
 # Segue abaixo algumas imagens do aplicativo
+
+![image](https://user-images.githubusercontent.com/5132840/139916959-44a654f5-4220-4442-a459-e72e11ba73dd.png)
 
 ![image](https://user-images.githubusercontent.com/5132840/139607915-e0dcaef3-e30e-40da-88d2-81d8180619e4.png)
 

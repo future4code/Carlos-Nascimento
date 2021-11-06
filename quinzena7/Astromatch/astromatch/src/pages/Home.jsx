@@ -1,52 +1,48 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useEffect } from "react";
 
-const HomeComponent = styled.div`
-display: flex;
-flex-direction: column;
-height: 80vh;
-width: 40vw;
-//border: solid red 1px;
-background-color: #DBCEF7;
-box-shadow: 5px 5px 20px #4a358d;
-overflow: hidden;
-
-.header{
-    height: 80px;
-    width: 100%;
-    background-color: #EFEBFE;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px 0 10px;
-}
-
-.content{
-    height: 100%;
-    width: 100%;
-    border: solid 1px red;
-
-}
-
-`
+import { HomeComponent, PageContainer } from '../styles/styles.js'
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import { useData } from "../context/context";
+import ContentContainer from "../components/ContentContainer";
+import { useAuth } from "../context/authContext.js";
+import { useHistory } from "react-router";
 
 
 export default function Home() {
-    return (
-        <HomeComponent>
-            <div className="header">
-            </div>
+  const data = useData()
+  const auth = useAuth()
+  const history = useHistory()
+  
+  const matchStamp = data.matchStamp
+  const isOver = data.isOver
+  const pichPerson = data.pichPerson
+  const getData = data.getData
+  const loading = data.loading
+  const user = data.user
+  const googleUser = auth.user
 
-            <div className="content">
-                <div className="arrow-right">
-                    <h1> seta </h1>
-                </div>
-                <div className="arrow-left">
-                    <h1>seta</h1>
-                </div>
+  useEffect(() => {
+    !googleUser && history.push("/")
+    getData();
+  }, [googleUser]);
 
-            </div>
-        </HomeComponent>
-    )
+  return (
+    <PageContainer>
+      <HomeComponent  isOver={isOver}>
+        <Header/>
+
+        <ContentContainer
+        loading={loading}
+        user={user} 
+        matchStamp={matchStamp}
+        />
+
+        <Footer 
+        pichPerson={pichPerson} 
+        getData={getData} />
+
+      </HomeComponent>
+    </PageContainer>
+  );
 }

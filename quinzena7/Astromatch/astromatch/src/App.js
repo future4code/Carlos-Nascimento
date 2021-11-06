@@ -1,27 +1,14 @@
-import Home from './pages/Home';
-import { createGlobalStyle } from 'styled-components';
-
-const GlobalStyle = createGlobalStyle`
-
-body{
-  box-sizing: border-box;
-  background-color: #C1B2F4;
-  height: 100vh;
-  width: 100vw;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-`
+import { routes as Routes } from "./routes/routes";
+import HandleDataContextProvider from "./context/context";
+import { GlobalStyle } from "./styles/styles";
 
 function App() {
-  return <>
-  <GlobalStyle></GlobalStyle>
-  <Home></Home>
-  </>
+  return (
+    <HandleDataContextProvider>
+      <GlobalStyle/>
+      <Routes/>
+    </HandleDataContextProvider>
+  );
 }
 
 export default App;
